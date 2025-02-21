@@ -20,7 +20,15 @@
     "web": {
       "bundler": "metro",
       "output": "static",
-      "favicon": "./assets/images/favicon.png"
+      "favicon": "./assets/images/favicon.png",
+      "pwa": {
+        "name": "medicAction",
+        "shortName": "medicAction",
+        "startUrl": ".",
+        "backgroundColor": "#ffffff",
+        "themeColor": "#000000",
+        "display": "standalone"
+      }
     },
     "plugins": [
       "expo-router",
