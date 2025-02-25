@@ -6,7 +6,7 @@
     "main": "App.js",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "myapp",
+    "scheme": "medicaction",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
