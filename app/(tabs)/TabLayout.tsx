@@ -1,3 +1,4 @@
+// filepath: /c:/Users/jorge/medicAction/app/(tabs)/_layout.tsx
 import { Tabs } from 'expo-router';
 import React from 'react';
 import { Platform } from 'react-native';
@@ -20,6 +21,7 @@ export default function TabLayout() {
         tabBarBackground: TabBarBackground,
         tabBarStyle: Platform.select({
           ios: {
+            // Usar un fondo transparente en iOS para mostrar el efecto de desenfoque
             position: 'absolute',
           },
           default: {},
