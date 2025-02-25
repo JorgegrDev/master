@@ -1,23 +1,12 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import { useFonts } from 'expo-font';
-import { createStackNavigator } from '@react-navigation/stack'; // Use createStackNavigator from @react-navigation/stack
-import * as SplashScreen from 'expo-splash-screen';
-import { StatusBar } from 'expo-status-bar';
-import { useEffect } from 'react';
-import 'react-native-reanimated';
+import { Stack } from "expo-router";
+import { useEffect } from "react";
+import { useFonts } from "expo-font";
+import * as SplashScreen from "expo-splash-screen";
+import { NavigationContainer } from "@react-navigation/native";
 
-import { useColorScheme } from '@/hooks/useColorScheme';
-import LoginScreen from '../screens/LoginScreen'; // Import LoginScreen
-
-// Prevent the splash screen from auto-hiding before asset loading is complete.
-SplashScreen.preventAutoHideAsync();
-
-const Stack = createStackNavigator(); // Create a Stack Navigator
-
-export default function RootLayout() {
-  const colorScheme = useColorScheme();
+export default function Layout() {
   const [loaded] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
+    SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),
   });
 
   useEffect(() => {
@@ -31,12 +20,15 @@ export default function RootLayout() {
   }
 
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack.Navigator initialRouteName="Login"> {/* Set initial route */}
-        <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false }} />
-        {/* Add other screens here */}
-      </Stack.Navigator>
-      <StatusBar style="auto" />
-    </ThemeProvider>
+    <Stack screenOptions={{ headerShown: false }}>
+      <Stack.Screen 
+        name="index" 
+        options={{ 
+          headerShown: false,
+          // Make this screen the initial screen
+          presentation: 'modal'
+        }} 
+      />
+    </Stack>
   );
 }
