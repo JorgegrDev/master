@@ -87,9 +87,50 @@ const LoginScreen = () => {
         >
           <View style={styles.modalContainer}>
             <View style={styles.modal}>
-              <ScrollView>
+              <Text style={styles.modalTitle}>Términos y Condiciones</Text>
+              <ScrollView style={styles.modalScrollView}>
                 <Text style={styles.modalText}>
-                  Aquí van los términos y condiciones...
+                  1. Aceptación de los Términos{'\n\n'}
+                  Al acceder y utilizar MedicAction, usted acepta estar sujeto a estos términos y condiciones de uso. Si no está de acuerdo con alguna parte de estos términos, no podrá acceder al servicio.{'\n\n'}
+
+                  2. Uso del Servicio{'\n\n'}
+                  2.1. MedicAction es una aplicación diseñada para ayudar en el seguimiento y control de medicamentos.{'\n\n'}
+                  2.2. La información proporcionada por la aplicación no sustituye el consejo médico profesional.{'\n\n'}
+                  2.3. El usuario es responsable de mantener la precisión de la información sobre sus medicamentos y dosis.{'\n\n'}
+
+                  3. Privacidad y Seguridad de Datos{'\n\n'}
+                  3.1. Recopilamos y almacenamos la siguiente información:{'\n'}
+                  • Datos personales básicos{'\n'}
+                  • Historial de medicamentos{'\n'}
+                  • Dosis y frecuencia de medicación{'\n'}
+                  • Recordatorios programados{'\n\n'}
+                  3.2. Sus datos están protegidos mediante:{'\n'}
+                  • Encriptación de extremo a extremo{'\n'}
+                  • Almacenamiento seguro en servidores certificados{'\n'}
+                  • Acceso restringido y autenticación segura{'\n\n'}
+
+                  4. Uso de la Información{'\n\n'}
+                  4.1. La información recopilada se utilizará para:{'\n'}
+                  • Proporcionar recordatorios de medicación{'\n'}
+                  • Generar informes de seguimiento{'\n'}
+                  • Mejorar la experiencia del usuario{'\n'}
+                  • Análisis estadísticos anónimos{'\n\n'}
+
+                  5. Responsabilidades del Usuario{'\n\n'}
+                  5.1. El usuario se compromete a:{'\n'}
+                  • Proporcionar información precisa{'\n'}
+                  • Mantener la confidencialidad de su cuenta{'\n'}
+                  • No compartir sus credenciales de acceso{'\n'}
+                  • Actualizar su información cuando sea necesario{'\n\n'}
+
+                  6. Limitación de Responsabilidad{'\n\n'}
+                  6.1. MedicAction no se hace responsable de:{'\n'}
+                  • Errores en la información proporcionada por el usuario{'\n'}
+                  • Interrupciones del servicio por mantenimiento{'\n'}
+                  • Decisiones médicas tomadas sin consultar a un profesional{'\n\n'}
+
+                  7. Modificaciones{'\n\n'}
+                  Nos reservamos el derecho de modificar estos términos en cualquier momento. Los cambios serán notificados a través de la aplicación.
                 </Text>
               </ScrollView>
               <TouchableOpacity
