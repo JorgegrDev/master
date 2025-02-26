@@ -1,7 +1,8 @@
 import { router } from "expo-router";
 import React, { useState } from "react";
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image, SafeAreaView, Modal, ScrollView } from "react-native";
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image, SafeAreaView, Modal, ScrollView, Alert } from "react-native";
 import Checkbox from 'expo-checkbox';
+import { loginUser } from '../firebase/auth';
 
 const LoginScreen = () => {
   const [email, setEmail] = useState("");
@@ -9,9 +10,36 @@ const LoginScreen = () => {
   const [isChecked, setIsChecked] = useState(false);
   const [modalVisible, setModalVisible] = useState(false);
 
-  const handleLogin = () => {
-    // Handle login logic here
-    router.push("/(tabs)"); // Navigate to tabs after login
+  const handleLogin = async () => {
+    try {
+      if (!email || !password) {
+        Alert.alert('Error', 'Por favor ingrese email y contraseña');
+        return;
+      }
+
+      await loginUser(email, password);
+      router.push('/(tabs)');
+    } catch (error) {
+      let errorMessage = 'Error al iniciar sesión';
+      
+      switch (error.code) {
+        case 'auth/invalid-email':
+          errorMessage = 'El correo electrónico no es válido';
+          break;
+        case 'auth/user-disabled':
+          errorMessage = 'Esta cuenta ha sido deshabilitada';
+          break;
+        case 'auth/user-not-found':
+          errorMessage = 'No existe una cuenta con este correo';
+          break;
+        case 'auth/wrong-password':
+          errorMessage = 'Contraseña incorrecta';
+          break;
+      }
+
+      Alert.alert('Error', errorMessage);
+      console.error('Error al iniciar sesión:', error);
+    }
   };
 
   return (
