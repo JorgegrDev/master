@@ -30,14 +30,12 @@ export const yourFunction = functions.https.onRequest(async (_req, res) => {
 // Example function using the database
 export const exampleFunction = functions.https.onRequest(async (_req, res) => {
   try {
-    // Your function logic here
-    const ref = database.ref('path/to/data');
-    await ref.set({ example: 'data' });
-    
+    const ref = database.ref("path/to/data");
+    await ref.set({ example: "data" });
     res.status(200).json({ success: true });
   } catch (error) {
-    console.error('Error:', error);
-    res.status(500).json({ error: 'Internal Server Error' });
+    console.error("Error:", error);
+    res.status(500).json({ error: "Internal Server Error" });
   }
 });
 

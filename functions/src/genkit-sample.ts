@@ -1,8 +1,7 @@
 import { genkit, z } from "genkit";
 import { googleAI, gemini15Flash } from "@genkit-ai/googleai";
-import { onCallGenkit } from "firebase-functions/https";
+import * as functions from "firebase-functions";
 import { defineSecret } from "firebase-functions/params";
-import { https } from "firebase-functions";
 
 const apiKey = defineSecret("GOOGLE_GENAI_API_KEY");
 
@@ -32,11 +31,7 @@ const menuSuggestionFlow = ai.defineFlow({
   return (await response).text;
 });
 
-export const menuSuggestion = onCallGenkit({
-  secrets: [apiKey],
-}, menuSuggestionFlow);
-
-export const genkitFunction = https.onRequest(async (req, res) => {
+export const menuSuggestion = functions.https.onRequest(async (req, res) => {
   try {
     const theme = req.body?.theme || "seafood";
     const result = await menuSuggestionFlow.run(theme);
