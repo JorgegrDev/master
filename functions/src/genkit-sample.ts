@@ -1,12 +1,15 @@
 import { genkit, z } from "genkit";
 import { googleAI, gemini15Flash } from "@genkit-ai/googleai";
 import * as functions from "firebase-functions";
-import { defineSecret } from "firebase-functions/params";
+import { defineString } from "firebase-functions/params";
 
-const apiKey = defineSecret("GOOGLE_GENAI_API_KEY");
+// Use defineString instead of defineSecret for API key
+const apiKey = defineString("AIzaSyDbrF0QRiZpY7IEx3wKTNWojVUCsb0Gp14");
 
 const ai = genkit({
-  plugins: [googleAI()],
+  plugins: [googleAI({
+    apiKey: apiKey.value(),
+  })],
 });
 
 const menuSuggestionFlow = ai.defineFlow({

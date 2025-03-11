@@ -10,9 +10,11 @@
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.yourdomain.medicaction"
     },
     "android": {
+      "package": "com.yourdomain.medicaction",
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
@@ -41,7 +43,11 @@
             "sizes": "512x512",
             "type": "image/png"
           }
-        ]
+        ],
+        "serviceWorker": {
+          "src": "/service-worker.js",
+          "scope": "/"
+        }
       }
     },
     "plugins": [
