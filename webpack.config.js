@@ -24,9 +24,11 @@ module.exports = async function (env, argv) {
       '@firebase/auth': '@firebase/auth/dist/esm2017/index.js',
       '@firebase/app': '@firebase/app/dist/esm2017/index.js',
       '@firebase/database': '@firebase/database/dist/esm2017/index.js',
+      '@firebase/firestore': '@firebase/firestore/dist/esm2017/index.js',
       'firebase/app': 'firebase/app/dist/esm2017/index.js',
       'firebase/auth': 'firebase/auth/dist/esm2017/index.js',
-      'firebase/database': 'firebase/database/dist/esm2017/index.js'
+      'firebase/database': 'firebase/database/dist/esm2017/index.js',
+      'firebase/firestore': 'firebase/firestore/dist/esm2017/index.js'
     }
   };
 

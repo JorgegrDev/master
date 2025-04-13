@@ -21,33 +21,12 @@
       }
     },
     "web": {
-      "bundler": "metro",
-      "output": "static",
       "favicon": "./assets/images/favicon.png",
-      "pwa": {
-        "name": "medicAction",
-        "shortName": "medicAction",
-        "startUrl": ".",
-        "backgroundColor": "#ffffff",
-        "themeColor": "#000000",
-        "display": "standalone",
-        "scope": "/",
-        "icons": [
-          {
-            "src": "./assets/images/pwa-icon-192.png",
-            "sizes": "192x192",
-            "type": "image/png"
-          },
-          {
-            "src": "./assets/images/pwa-icon-512.png",
-            "sizes": "512x512",
-            "type": "image/png"
-          }
-        ],
-        "serviceWorker": {
-          "src": "/service-worker.js",
-          "scope": "/"
-        }
+      "bundler": "metro",
+      "splash": {
+        "image": "./assets/images/splash-icon.png",
+        "resizeMode": "contain",
+        "backgroundColor": "#ffffff"
       }
     },
     "plugins": [
