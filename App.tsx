@@ -6,7 +6,9 @@ import { FirebaseInitializer } from './components/FirebaseInitializer';
 const App: FC = () => {
   return (
     <FirebaseInitializer>
-      {/* ...existing code... */}
+      <>
+        {/* ...existing code... */}
+      </>
     </FirebaseInitializer>
   );
 }
